@@ -1,9 +1,17 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import * as React from 'react';
+import { connect } from 'react-redux';
+import '../../styles/Main.scss';
+const logo = require("../../assets/logo.svg") as string;
 
-class App extends Component {
-  render() {
+
+export interface IProps {
+  name: string;
+  age?: number;
+}
+
+export class Home extends React.Component<IProps, object> {
+
+  public render() {
     return (
       <div className="App">
         <header className="App-header">
@@ -21,8 +29,16 @@ class App extends Component {
           </a>
         </header>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+const mapStateToProps = (state:any) => ({
+  
+})
+
+const mapDispatchToProps = {
+  
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
